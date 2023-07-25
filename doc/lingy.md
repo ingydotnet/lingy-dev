@@ -61,7 +61,7 @@ $ cat 99-bottles.ly
     (= n 1) "1 bottle"
     :else (str n " bottles")))
 
-(main (nth *ARGV* 0 99))
+(main (nth *command-line-args* 0 99))
 ```
 
 ```
@@ -169,7 +169,7 @@ Lingy one-liner expressions.
 * `lingy program.ly foo bar`
 
   Run a Lingy program passing in arguments.
-  Arguments are available in Lingy as `*ARGV*`.
+  Arguments are available in Lingy as `*command-line-args*`.
 
 * `cat program.ly | lingy - foo bar`
 
@@ -177,7 +177,7 @@ Lingy one-liner expressions.
   The `-` means run from STDIN instead of a file.
   If there are no arguments you can omit the `-`.
 
-* `lingy -e '(println "Hello" (nth *ARGV* 0))' world`
+* `lingy -e '(println "Hello" (first *command-line-args*))' world`
 
   Run a Lingy one-liner with arguments.
 
@@ -283,7 +283,7 @@ its PID number to `.nrepl-port`.
 
 You can enable nREPL logging (in YAML format) by setting the `LINGY_NREPL_LOG`
 environment variable.
-The variables value can be the name/path of the log file to be created or `-`
+The variable's value can be the name/path of the log file to be created or `-`
 to write to stdout.
 Setting the value to `1` will write to `.nrepl-log`.
 
