@@ -38,9 +38,9 @@ Hello, world!
 or run an example Lingy program:
 
 ```
-$ curl -s https://raw.githubusercontent.com/ingydotnet/lingy/main/eg/99-bottles.ly |
-> tee /dev/tty |
-> lingy - 3
+$ curl -s https://raw.githubusercontent.com/lingy-lang/lingy/main/eg/99-bottles.ly |
+  tee /dev/tty |
+  lingy - 3
 (defn main [number]
   (let [
     paragraphs (map paragraph (range number 0 -1)) ]
@@ -104,10 +104,11 @@ It is a Lisp dialect that is hosted by Java and compiles to JVM byte code.
 It has access to any libraries that target the JVM.
 
 Much of the Clojure language is written in Clojure (self hosted) and Lingy
-actually uses the Clojure source code.
+actually uses (a steadily increasing amount of) the Clojure source code.
 
 A variant of Clojure called ClojureScript uses the same Clojure source code but
 is hosted by JavaScript with full access to NPM modules.
+
 Lingy also intends to eventually be ported to and hosted by many other
 programming languages.
 
