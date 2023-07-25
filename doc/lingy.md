@@ -10,10 +10,10 @@ Run the Lingy REPL:
 
 ```
 $ lingy
-Lingy 0.1.12 [perl]
+Lingy 0.1.19 [perl]
 
 user=> (p<TAB>
-pos?     println  prn      pr-str
+perl     pos?     println  prn      pr-str
 user=> (prn "Hello, world!")
 "Hello, world!"
 nil
@@ -38,11 +38,9 @@ Hello, world!
 or run an example Lingy program:
 
 ```
-$ wget -q https://raw.githubusercontent.com/ingydotnet/lingy/main/eg/99-bottles.ly
-```
-
-```
-$ cat 99-bottles.ly
+$ curl -s https://raw.githubusercontent.com/ingydotnet/lingy/main/eg/99-bottles.ly |
+> tee /dev/tty |
+> lingy - 3
 (defn main [number]
   (let [
     paragraphs (map paragraph (range number 0 -1)) ]
@@ -62,10 +60,7 @@ $ cat 99-bottles.ly
     :else (str n " bottles")))
 
 (main (nth *command-line-args* 0 99))
-```
 
-```
-$ lingy 99-bottles.ly 3
 3 bottles of beer on the wall,
 3 bottles of beer.
 Take one down, pass it around.
